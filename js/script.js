@@ -4,16 +4,20 @@ console.log('vuole percorrere: ' + km + ' km');
 var age = prompt ('Quanti anni hai?');
 console.log('l\'utente ha: ' + age + ' anni');
 
-var tariffa = (0,21);
-var percUnder = (0,20);
-var percOver = (0,40);
+var tariffa = (0.21);
 
-var ticketPrice = ( km * tariffa)/100;
+
+var ticketPrice = parseInt( km * tariffa);
 console.log('il prezzo del biglietto per i tuoi km è: ' + ticketPrice + ' €');
 console.log(typeof ticketPrice);
 
 
 if (age < 18) {
-  var priceUnder  = ( ticketPrice - (ticketPrice * percUnder));
-  console.log('il prezzo del tuo biglietto è: ' + priceUnder);
+  ticketPrice -= ticketPrice * 0.2;
+  console.log('il prezzo del tuo biglietto UNDER è: ' + ticketPrice + ' €');
+} else if (age > 65) {
+  ticketPrice -= ticketPrice * 0.4;
+  console.log('il prezzo del tuo biglietto OVER è: ' + ticketPrice + ' €');
+} else {
+  console.log('il prezzo del tuo biglietto è: ' + ticketPrice + ' €');
 }
